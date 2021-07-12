@@ -31,16 +31,17 @@ public class Grid : MonoBehaviour
         int target = index + direction;
         if (target >= 0 && target < mapHeight * mapWidth)
         {
+            if (index % 6 == 0 && direction == -1)//left
+                return 0;
+            if ((index + 1) % 6 == 0 && direction == 1) //right
+                return 0;
             Block targetBlock = blocks[target].GetComponentInChildren<Block>();
             if (targetBlock != null)
             {
                 targetBlockGameObject = blocks[target];
                 return 1;
             }
-            if (index % 6 == 0 && direction == -1)//left
-                return 0;
-            if ((index + 1) % 6 == 0 && direction == 1)
-                return 0;
+
             else
                 return 2;
         }

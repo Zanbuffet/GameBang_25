@@ -41,7 +41,7 @@ public class Buttons : MonoBehaviour
                 if (buttonController.cur_index==buttonController.max_index)
                 Application.Quit();
                 else
-                SceneManager.LoadScene("game");
+                SceneManager.LoadScene(1);
             }
         }
     }

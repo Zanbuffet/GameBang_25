@@ -65,7 +65,6 @@ public class PlayerController : MonoBehaviour
 
     public void AttackBlock(int attack)
     {
-        Debug.Log("SSSSSS");
         grid.targetBlockGameObject.GetComponentInChildren<Block>().TakeDamage(attack);
         grid.ResetTarget();
         //check down block;
