@@ -4,7 +4,7 @@ TextureImporter:
   internalIDToNameTable:
   - first:
       213: -5792511334730316588
-    second: pig_0
+    second: block
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -94,15 +94,15 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: pig_0
+      name: block
       rect:
         serializedVersion: 2
         x: 775
-        y: 645
-        width: 256
-        height: 256
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        y: 642
+        width: 260
+        height: 260
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []

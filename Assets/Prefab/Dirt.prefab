@@ -72,8 +72,8 @@ SpriteRenderer:
   m_SortingLayerID: -1619474123
   m_SortingLayer: 1
   m_SortingOrder: 0
-  m_Sprite: {fileID: 5865670524570963042, guid: 076be4946f3c60f4fb343f174a2b9b3f, type: 3}
-  m_Color: {r: 0.7075472, g: 0.4477915, b: 0.25031152, a: 1}
+  m_Sprite: {fileID: -731162151908756296, guid: 4b2d1af5f0fd61645aaeaee122ecef47, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -82,7 +82,7 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
+  m_SpriteSortPoint: 1
 --- !u!114 &2233982028343263958
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -97,4 +97,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 2
   death: 0
+  ice: 0
   staminaRecover: 0

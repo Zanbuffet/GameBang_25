@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2233982028343263913}
   - component: {fileID: -1235312490005520368}
   m_Layer: 0
-  m_Name: Stone 1
+  m_Name: Poison
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -72,8 +72,8 @@ SpriteRenderer:
   m_SortingLayerID: -1619474123
   m_SortingLayer: 1
   m_SortingOrder: 0
-  m_Sprite: {fileID: 5865670524570963042, guid: 076be4946f3c60f4fb343f174a2b9b3f, type: 3}
-  m_Color: {r: 0.2566857, g: 0.14929688, b: 0.5188679, a: 1}
+  m_Sprite: {fileID: 5113495189850202467, guid: 4b2d1af5f0fd61645aaeaee122ecef47, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -82,7 +82,7 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
+  m_SpriteSortPoint: 1
 --- !u!114 &-1235312490005520368
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -97,4 +97,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 1
   death: 1
+  ice: 0
   staminaRecover: 0

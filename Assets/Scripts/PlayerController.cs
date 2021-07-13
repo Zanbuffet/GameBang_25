@@ -7,13 +7,32 @@ public class PlayerController : MonoBehaviour
     public Grid grid;
     public int currentGridIndex;
     private bool isMoving;
-    private Vector3 origPos, targetPos;
+    private Vector3 origPos, targetPos, camOrigPos, camTargetPos;
     private float timeToMove = 0.1f;
-
+    private float cameraMoveTime = 0.1f;
     public int attack;
     public int moveSpeed;
-
+    public Transform cameraTransform;
+    public Transform mainCamera;
     public AnimalType animalType;
+
+
+    private IEnumerator MoveCamera()
+    {
+        float elapsedTime = 0;
+        camOrigPos = mainCamera.position;
+        while (elapsedTime < cameraMoveTime)
+        {
+            //transform.position = Vector3.Lerp(origPos, targetPos, (elapsedTime / timeToMove));
+            camTargetPos = new Vector3(0, cameraTransform.position.y, cameraTransform.position.z);
+            Debug.Log(cameraTransform.position);
+            mainCamera.position = Vector3.Lerp(camOrigPos, camTargetPos, (elapsedTime / timeToMove));
+            elapsedTime += Time.deltaTime;
+            yield return null;
+        }
+        //transform.position = targetPos;
+        mainCamera.position = new Vector3(0, cameraTransform.position.y, cameraTransform.position.z);
+    }
 
     void Update()
     {
@@ -32,6 +51,7 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.DownArrow) && !isMoving)
         {
             StartCoroutine(MovePlayer(6));
+            StartCoroutine(MoveCamera());
         }
         if (!isMoving && (currentGridIndex + 6 < grid.blocks.Count))
         {
@@ -240,6 +260,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 }
+
 
 public enum AnimalType
 {
