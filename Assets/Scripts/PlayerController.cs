@@ -13,7 +13,6 @@ public class PlayerController : MonoBehaviour
     private float cameraMoveTime = 0.2f;
     public int attack;
     public int moveSpeed;
-    public Transform cameraTransform;
     public Transform mainCamera;
     public AnimalType animalType;
     [SerializeField] Animator animator;
@@ -27,14 +26,11 @@ public class PlayerController : MonoBehaviour
         camOrigPos = mainCamera.position;
         while (elapsedTime < cameraMoveTime)
         {
-            //transform.position = Vector3.Lerp(origPos, targetPos, (elapsedTime / timeToMove));
             camTargetPos = new Vector3(0, transform.position.y, -10);
-            //Debug.Log(cameraTransform.position);
             mainCamera.position = Vector3.Lerp(camOrigPos, camTargetPos, (elapsedTime / timeToMove));
             elapsedTime += Time.deltaTime;
             yield return null;
         }
-        //transform.position = targetPos;
         mainCamera.position = new Vector3(0, transform.position.y, -10);
     }
 
@@ -45,13 +41,11 @@ public class PlayerController : MonoBehaviour
             StartCoroutine(MovePlayer(-1));
             GetComponent<SpriteRenderer>().flipX = false;
         }
-
         if (Input.GetKeyDown(KeyCode.RightArrow) && !isMoving)
         {
             GetComponent<SpriteRenderer>().flipX = true;
             StartCoroutine(MovePlayer(1));
         }
-
         if (Input.GetKeyDown(KeyCode.DownArrow) && !isMoving)
         {
             StartCoroutine(MovePlayer(6));
@@ -73,7 +67,6 @@ public class PlayerController : MonoBehaviour
         if (animalType == AnimalType.Horse)
         {
             speed = grid.CheckTargetAccessible(currentGridIndex, direction, speed);
-
         }
         if (grid.GetMovable(currentGridIndex, direction, speed) == 1)
         {
@@ -123,7 +116,6 @@ public class PlayerController : MonoBehaviour
             LionSkill(direction, attack);
         }
         grid.ResetTarget();
-        //check down block;
     }
 
     private void PigSkill(int direction, int attack)

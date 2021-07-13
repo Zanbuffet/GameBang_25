@@ -646,6 +646,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentList: 
+  player: {fileID: 448602179}
 --- !u!1 &382769670
 GameObject:
   m_ObjectHideFlags: 0
@@ -657,6 +658,8 @@ GameObject:
   - component: {fileID: 382769673}
   - component: {fileID: 382769672}
   - component: {fileID: 382769671}
+  - component: {fileID: 382769675}
+  - component: {fileID: 382769674}
   m_Layer: 0
   m_Name: Penguin
   m_TagString: Untagged
@@ -680,12 +683,11 @@ MonoBehaviour:
   currentGridIndex: 2
   attack: 10001
   moveSpeed: 1
-  cameraTransform: {fileID: 0}
-  mainCamera: {fileID: 0}
+  mainCamera: {fileID: 972763925}
   animalType: 3
-  animator: {fileID: 0}
-  soundManager: {fileID: 0}
-  animatorFunction: {fileID: 0}
+  animator: {fileID: 382769674}
+  soundManager: {fileID: 1219606336}
+  animatorFunction: {fileID: 382769675}
 --- !u!212 &382769672
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -748,8 +750,78 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 1375943090}
-  m_RootOrder: 1
+  m_Father: {fileID: 448602180}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &382769674
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 382769670}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 68ba4eee8ab897949942c33cf217e627, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &382769675
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 382769670}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7dc0df901f3b3142bc36b806e647433, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buttonController: {fileID: 0}
+  soundManager: {fileID: 1219606336}
+  disableOnce: 0
+--- !u!1 &448602179
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 448602180}
+  m_Layer: 0
+  m_Name: Player
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &448602180
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 448602179}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.42, y: 2.39, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1375943090}
+  - {fileID: 974232438}
+  - {fileID: 874162220}
+  - {fileID: 382769673}
+  - {fileID: 2117133296}
+  - {fileID: 570683031}
+  m_Father: {fileID: 0}
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &570683028
 GameObject:
@@ -762,6 +834,8 @@ GameObject:
   - component: {fileID: 570683031}
   - component: {fileID: 570683030}
   - component: {fileID: 570683029}
+  - component: {fileID: 570683033}
+  - component: {fileID: 570683032}
   m_Layer: 0
   m_Name: Lion
   m_TagString: Untagged
@@ -785,12 +859,11 @@ MonoBehaviour:
   currentGridIndex: 2
   attack: 11000
   moveSpeed: 1
-  cameraTransform: {fileID: 0}
-  mainCamera: {fileID: 0}
+  mainCamera: {fileID: 972763925}
   animalType: 5
-  animator: {fileID: 0}
-  soundManager: {fileID: 0}
-  animatorFunction: {fileID: 0}
+  animator: {fileID: 570683032}
+  soundManager: {fileID: 1219606336}
+  animatorFunction: {fileID: 570683033}
 --- !u!212 &570683030
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -853,9 +926,43 @@ Transform:
   m_LocalPosition: {x: 0.16999996, y: -0.02000022, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 1375943090}
-  m_RootOrder: 4
+  m_Father: {fileID: 448602180}
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &570683032
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 570683028}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 68ba4eee8ab897949942c33cf217e627, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &570683033
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 570683028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7dc0df901f3b3142bc36b806e647433, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buttonController: {fileID: 0}
+  soundManager: {fileID: 1219606336}
+  disableOnce: 0
 --- !u!1 &574658373
 GameObject:
   m_ObjectHideFlags: 0
@@ -933,6 +1040,8 @@ GameObject:
   - component: {fileID: 874162220}
   - component: {fileID: 874162219}
   - component: {fileID: 874162218}
+  - component: {fileID: 874162222}
+  - component: {fileID: 874162221}
   m_Layer: 0
   m_Name: Horse
   m_TagString: Untagged
@@ -956,12 +1065,11 @@ MonoBehaviour:
   currentGridIndex: 2
   attack: 3
   moveSpeed: 2
-  cameraTransform: {fileID: 0}
-  mainCamera: {fileID: 0}
+  mainCamera: {fileID: 972763925}
   animalType: 2
-  animator: {fileID: 0}
-  soundManager: {fileID: 0}
-  animatorFunction: {fileID: 0}
+  animator: {fileID: 874162221}
+  soundManager: {fileID: 1219606336}
+  animatorFunction: {fileID: 874162222}
 --- !u!212 &874162219
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1024,9 +1132,43 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 1375943090}
+  m_Father: {fileID: 448602180}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &874162221
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 874162217}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 68ba4eee8ab897949942c33cf217e627, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &874162222
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 874162217}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7dc0df901f3b3142bc36b806e647433, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buttonController: {fileID: 0}
+  soundManager: {fileID: 1219606336}
+  disableOnce: 0
 --- !u!1 &951273057
 GameObject:
   m_ObjectHideFlags: 0
@@ -1196,6 +1338,8 @@ GameObject:
   - component: {fileID: 974232438}
   - component: {fileID: 974232437}
   - component: {fileID: 974232436}
+  - component: {fileID: 974232440}
+  - component: {fileID: 974232439}
   m_Layer: 0
   m_Name: Pig
   m_TagString: Untagged
@@ -1219,12 +1363,11 @@ MonoBehaviour:
   currentGridIndex: 2
   attack: 3
   moveSpeed: 1
-  cameraTransform: {fileID: 0}
-  mainCamera: {fileID: 0}
+  mainCamera: {fileID: 972763925}
   animalType: 1
-  animator: {fileID: 0}
-  soundManager: {fileID: 0}
-  animatorFunction: {fileID: 0}
+  animator: {fileID: 974232439}
+  soundManager: {fileID: 1219606336}
+  animatorFunction: {fileID: 974232440}
 --- !u!212 &974232437
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1287,9 +1430,43 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 1375943090}
-  m_RootOrder: 0
+  m_Father: {fileID: 448602180}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &974232439
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 974232435}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 68ba4eee8ab897949942c33cf217e627, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &974232440
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 974232435}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7dc0df901f3b3142bc36b806e647433, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buttonController: {fileID: 0}
+  soundManager: {fileID: 1219606336}
+  disableOnce: 0
 --- !u!1 &1219606335
 GameObject:
   m_ObjectHideFlags: 0
@@ -1554,7 +1731,6 @@ MonoBehaviour:
   currentGridIndex: 2
   attack: 1
   moveSpeed: 1
-  cameraTransform: {fileID: 0}
   mainCamera: {fileID: 972763925}
   animalType: 0
   animator: {fileID: 1375943092}
@@ -1619,16 +1795,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1375943087}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.42, y: 2.39, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 974232438}
-  - {fileID: 382769673}
-  - {fileID: 874162220}
-  - {fileID: 2117133296}
-  - {fileID: 570683031}
-  m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_Children: []
+  m_Father: {fileID: 448602180}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1375943091
 MonoBehaviour:
@@ -1750,6 +1921,8 @@ GameObject:
   - component: {fileID: 2117133296}
   - component: {fileID: 2117133295}
   - component: {fileID: 2117133294}
+  - component: {fileID: 2117133298}
+  - component: {fileID: 2117133297}
   m_Layer: 0
   m_Name: Elephant
   m_TagString: Untagged
@@ -1773,12 +1946,11 @@ MonoBehaviour:
   currentGridIndex: 2
   attack: 3
   moveSpeed: 1
-  cameraTransform: {fileID: 0}
-  mainCamera: {fileID: 0}
+  mainCamera: {fileID: 972763925}
   animalType: 4
-  animator: {fileID: 0}
-  soundManager: {fileID: 0}
-  animatorFunction: {fileID: 0}
+  animator: {fileID: 2117133297}
+  soundManager: {fileID: 1219606336}
+  animatorFunction: {fileID: 2117133298}
 --- !u!212 &2117133295
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1841,9 +2013,43 @@ Transform:
   m_LocalPosition: {x: 0.16999996, y: -0.02000022, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 1375943090}
-  m_RootOrder: 3
+  m_Father: {fileID: 448602180}
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &2117133297
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2117133293}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 68ba4eee8ab897949942c33cf217e627, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &2117133298
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2117133293}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7dc0df901f3b3142bc36b806e647433, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buttonController: {fileID: 0}
+  soundManager: {fileID: 1219606336}
+  disableOnce: 0
 --- !u!1001 &6505942860091450610
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -8,6 +8,7 @@ public class AnimalBar : MonoBehaviour
     private static AnimalBar _instance;
     public static AnimalBar Instance { get { return _instance; } }
     public List<AnimalType> currentList = new List<AnimalType>();
+    public GameObject player;
     private void Awake()
     {
         if (_instance != null && _instance != this)
@@ -37,7 +38,8 @@ public class AnimalBar : MonoBehaviour
         if (currentList.Count == 3)
         {
             Debug.Log("CHANGE FORM");
+            player.transform.GetChild(0).gameObject.SetActive(false);
+            player.transform.GetChild(((int)animal)).gameObject.SetActive(true);            
         }
     }
-
 }
