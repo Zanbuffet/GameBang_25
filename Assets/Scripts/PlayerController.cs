@@ -6,7 +6,7 @@ public class PlayerController : MonoBehaviour
 {
     public Grid grid;
     public int currentGridIndex;
-    private bool isMoving;
+    public bool isMoving;
     private Vector3 origPos, targetPos, camOrigPos, camTargetPos;
     private float timeToMove = 0.1f;
     private float timeToStand = 0.1f;
@@ -20,15 +20,16 @@ public class PlayerController : MonoBehaviour
     [SerializeField] AnimatorFunction animatorFunction;
 
 
-private void Start() {
-    InitialzeSprite(currentGridIndex);
-}
+    private void Start()
+    {
+        InitialzeSprite(currentGridIndex);
+    }
     public void InitialzeSprite(int point)
     {
         currentGridIndex = point;
-         targetPos = grid.blocks[currentGridIndex].transform.position;
-            transform.position = targetPos;
-        
+        targetPos = grid.blocks[currentGridIndex].transform.position;
+        transform.position = targetPos;
+
     }
     private IEnumerator MoveCamera()
     {
@@ -46,52 +47,62 @@ private void Start() {
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.LeftArrow) && !isMoving)
+        if (GameManager.Instance.gameState == GameState.Game)
         {
-            StartCoroutine(MovePlayer(-1));
-            GetComponent<SpriteRenderer>().flipX = false;
-        }
-        if (Input.GetKeyDown(KeyCode.RightArrow) && !isMoving)
-        {
-            GetComponent<SpriteRenderer>().flipX = true;
-            StartCoroutine(MovePlayer(1));
-        }
-        if (Input.GetKeyDown(KeyCode.DownArrow) && !isMoving)
-        {
-            StartCoroutine(MovePlayer(6));
-            StartCoroutine(MoveCamera());
-        }
-        if (!isMoving && (currentGridIndex + 6 < grid.blocks.Count))
-        {
-            if (grid.GapUnder(currentGridIndex))
+            if (!isMoving && (currentGridIndex + 6 < grid.blocks.Count))
+            {
+                if (grid.GapUnder(currentGridIndex))
+                {
+                    print("FALL");
+                    //StartCoroutine(MovePlayer(6));
+                    StartCoroutine(Falling(6));
+                }
+            }
+            if (Input.GetKeyDown(KeyCode.LeftArrow) && !isMoving)
+            {
+                StartCoroutine(MovePlayer(-1));
+                GetComponent<SpriteRenderer>().flipX = false;
+            }
+            if (Input.GetKeyDown(KeyCode.RightArrow) && !isMoving)
+            {
+                GetComponent<SpriteRenderer>().flipX = true;
+                StartCoroutine(MovePlayer(1));
+            }
+            if (Input.GetKeyDown(KeyCode.DownArrow) && !isMoving)
             {
                 StartCoroutine(MovePlayer(6));
+                StartCoroutine(MoveCamera());
             }
         }
+
     }
 
 
     IEnumerator MovePlayer(int direction)
     {
         int speed = moveSpeed;
-        if (animalType == AnimalType.Horse)
-        {
-            speed = grid.CheckTargetAccessible(currentGridIndex, direction, speed);
-        }
+
         if (grid.GetMovable(currentGridIndex, direction, speed) == 1)
         {
             float animTime = 0;
             animator.SetBool("Attacking", true);
+
             while (animTime < timeToStand)
             {
                 animTime += Time.deltaTime;
                 yield return null;
             }
-            animator.SetBool("Attacking", false);
             AttackBlock(direction, attack, speed);
+            animator.SetBool("Attacking", false);
+
+            yield break;
         }
         if (grid.GetMovable(currentGridIndex, direction, speed) == 2)
         {
+            if (animalType == AnimalType.Horse)
+            {
+                speed = grid.CheckTargetAccessible(currentGridIndex, direction, speed);
+            }
             float elapsedTime = 0;
             origPos = transform.position;
             targetPos = grid.GetTargetTransform(currentGridIndex, direction, speed).position;
@@ -109,9 +120,27 @@ private void Start() {
             isMoving = false;
         }
     }
-
+    IEnumerator Falling(int direction)
+    {
+        float elapsedTime = 0;
+        origPos = transform.position;
+        targetPos = grid.GetTargetTransform(currentGridIndex, direction, 1).position;
+        isMoving = true;
+        animator.SetBool("Moving", true);
+        while (elapsedTime < timeToMove)
+        {
+            transform.position = Vector3.Lerp(origPos, targetPos, (elapsedTime / timeToMove));
+            elapsedTime += Time.deltaTime;
+            yield return null;
+        }
+        animator.SetBool("Moving", false);
+        transform.position = targetPos;
+        currentGridIndex += direction * 1;
+        isMoving = false;
+    }
     public void AttackBlock(int direction, int attack, int speed)
     {
+        print("ATTACKED");
         grid.blocks[currentGridIndex + direction * speed].GetComponentInChildren<Block>().TakeDamage(attack);
         if (animalType == AnimalType.Pig)
         {

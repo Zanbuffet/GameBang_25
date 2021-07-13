@@ -13,6 +13,9 @@ public class AnimalBar : MonoBehaviour
     public Transform uiPanel;
     public Image henshinImage;
     public GameObject henshinGameObject;
+    public AudioClip ding1;
+    public AudioClip ding2;
+    public AudioClip ding3;
     private void Awake()
     {
         if (_instance != null && _instance != this)
@@ -35,12 +38,22 @@ public class AnimalBar : MonoBehaviour
         {
             currentList.Add(animal);
             AddBarUI(animal);
+            SoundManager.instance.AudioPlay(ding1);
             return;
         }
         if (!animal.Equals(currentList[0]))
         {
             currentList.Clear();
             ClearBarUI();
+            SoundManager.instance.AudioPlay(ding1);
+        }
+        if (currentList.Count == 1)
+        {
+            SoundManager.instance.AudioPlay(ding2);
+        }
+        if (currentList.Count == 2)
+        {
+            SoundManager.instance.AudioPlay(ding3);
         }
         currentList.Add(animal);
         AddBarUI(animal);

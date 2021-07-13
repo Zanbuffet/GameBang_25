@@ -37,8 +37,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 6, y: 0}
-  m_SizeDelta: {x: 538.4566, y: 292.8181}
+  m_AnchoredPosition: {x: 47.75659, y: -32.923492}
+  m_SizeDelta: {x: 434.0651, y: 210.5094}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4402058545693269066
 CanvasRenderer:
@@ -83,6 +83,7 @@ MonoBehaviour:
   animator: {fileID: 0}
   index: 0
   changingCover: {fileID: 0}
+  animatorFunction: {fileID: 0}
 --- !u!1 &4402058547420242932
 GameObject:
   m_ObjectHideFlags: 0
@@ -117,8 +118,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.000099182, y: 0.000015259}
-  m_SizeDelta: {x: 538.46, y: 292.82}
+  m_AnchoredPosition: {x: -16.062, y: 0.000015259}
+  m_SizeDelta: {x: 466.1889, y: 234.6017}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4402058547420242699
 CanvasRenderer:

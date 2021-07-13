@@ -242,7 +242,7 @@ AnimationClip:
   - time: 0
     functionName: PlaySoundInGame
     data: 
-    objectReferenceParameter: {fileID: 8300000, guid: 04ad7cc03c87f46409c3312119c9afd0, type: 3}
+    objectReferenceParameter: {fileID: 8300000, guid: 9834bd597bef6864bb4fdd6d107bf028, type: 3}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0

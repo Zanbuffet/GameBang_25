@@ -12,6 +12,7 @@ public class GameManager : MonoBehaviour
     public float maxStamina = 10;
     public float curStamina = 10;
     public GameObject staminaBar = null;
+    public GameState gameState;
     private void Awake()
     {
         if (_instance != null && _instance != this)
@@ -45,11 +46,21 @@ public class GameManager : MonoBehaviour
         {
             GameOver();
         }
-
     }
     private void Update()
     {
-        curStamina -= Time.deltaTime;
-        SetStaminaBar();
+        if (gameState == GameState.Game)
+        {
+            curStamina -= Time.deltaTime;
+            SetStaminaBar();
+        }
     }
+}
+public enum GameState
+{
+    Tittle,
+    Cg,
+    Game,
+    Dead,
+    Win
 }
