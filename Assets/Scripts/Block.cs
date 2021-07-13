@@ -6,6 +6,7 @@ public class Block : MonoBehaviour
 {
     public int health;
     public bool death;
+    public bool ice;
     public float staminaRecover;
     public void TakeDamage(int damage)
     {
@@ -13,13 +14,14 @@ public class Block : MonoBehaviour
         if (health <= 0)
         {
             //GameManger.Instance.AddStamina(staminaRecover)
-            if(death)
+            if (death)
             {
-                //death effect
-                GameManager.Instance.GameOver();
+                if (damage < 11000)
+                    //death effect
+                    GameManager.Instance.GameOver();
             }
             Destroy(gameObject);
-
+            GameManager.Instance.curStamina += 0.5f;
         }
     }
 }
