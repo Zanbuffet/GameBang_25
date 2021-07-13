@@ -7,32 +7,47 @@ public class ButtonController : MonoBehaviour
     public int cur_index;
     public int max_index;
     public bool key_pressed;
-	void Start () {
-
-	}
+    public AudioSource audioSource;
+    void Start()
+    {
+        audioSource = GetComponent<AudioSource>();
+    }
 
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetAxis ("Vertical") != 0){
-			if(!key_pressed){
-				if (Input.GetAxis ("Vertical") < 0) {
-					if(cur_index < max_index){
-						cur_index++;
-					}else{
-						cur_index = 0;
-					}
-				} else if(Input.GetAxis ("Vertical") > 0){
-					if(cur_index > 0){
-						cur_index --; 
-					}else{
-						cur_index = max_index;
-					}
-				}
-				key_pressed = true;
-			}
-		}else{
-			key_pressed = false;
-		}
+        if (Input.GetAxis("Vertical") != 0)
+        {
+            if (!key_pressed)
+            {
+                if (Input.GetAxis("Vertical") < 0)
+                {
+                    if (cur_index < max_index)
+                    {
+                        cur_index++;
+                    }
+                    else
+                    {
+                        cur_index = 0;
+                    }
+                }
+                else if (Input.GetAxis("Vertical") > 0)
+                {
+                    if (cur_index > 0)
+                    {
+                        cur_index--;
+                    }
+                    else
+                    {
+                        cur_index = max_index;
+                    }
+                }
+                key_pressed = true;
+            }
+        }
+        else
+        {
+            key_pressed = false;
+        }
     }
 }

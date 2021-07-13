@@ -11,6 +11,7 @@ public class Buttons : MonoBehaviour
     private bool changingScene;
     private float timer;
     [SerializeField] GameObject changingCover;
+    [SerializeField] AnimatorFunction animatorFunction;
 
     // Update is called once per frame
     void Update()
@@ -27,6 +28,7 @@ public class Buttons : MonoBehaviour
                 animator.SetBool("press", false);
                 Instantiate(changingCover, GameObject.Find("Canvas").transform);
                 changingScene = true;
+                animatorFunction.disableOnce = true;
             }
         }
         else
