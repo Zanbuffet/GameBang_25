@@ -8,7 +8,7 @@ public class Block : MonoBehaviour
     public bool death;
     public bool ice;
     public float staminaRecover;
-    public void TakeDamage(int damage)
+    public virtual void TakeDamage(int damage)
     {
         health -= damage;
         if (health <= 0)

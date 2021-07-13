@@ -9,7 +9,8 @@ public class PlayerController : MonoBehaviour
     private bool isMoving;
     private Vector3 origPos, targetPos, camOrigPos, camTargetPos;
     private float timeToMove = 0.1f;
-    private float cameraMoveTime = 0.1f;
+    private float timeToStand = 0.1f;
+    private float cameraMoveTime = 0.2f;
     public int attack;
     public int moveSpeed;
     public Transform cameraTransform;
@@ -27,14 +28,14 @@ public class PlayerController : MonoBehaviour
         while (elapsedTime < cameraMoveTime)
         {
             //transform.position = Vector3.Lerp(origPos, targetPos, (elapsedTime / timeToMove));
-            camTargetPos = new Vector3(0, cameraTransform.position.y, cameraTransform.position.z);
-            Debug.Log(cameraTransform.position);
+            camTargetPos = new Vector3(0, transform.position.y, -10);
+            //Debug.Log(cameraTransform.position);
             mainCamera.position = Vector3.Lerp(camOrigPos, camTargetPos, (elapsedTime / timeToMove));
             elapsedTime += Time.deltaTime;
             yield return null;
         }
         //transform.position = targetPos;
-        mainCamera.position = new Vector3(0, cameraTransform.position.y, cameraTransform.position.z);
+        mainCamera.position = new Vector3(0, transform.position.y, -10);
     }
 
     void Update()
@@ -76,6 +77,14 @@ public class PlayerController : MonoBehaviour
         }
         if (grid.GetMovable(currentGridIndex, direction, speed) == 1)
         {
+            float animTime = 0;
+            animator.SetBool("Attacking", true);
+            while (animTime < timeToStand)
+            {
+                animTime += Time.deltaTime;
+                yield return null;
+            }
+            animator.SetBool("Attacking", false);
             AttackBlock(direction, attack, speed);
         }
         if (grid.GetMovable(currentGridIndex, direction, speed) == 2)
@@ -91,10 +100,10 @@ public class PlayerController : MonoBehaviour
                 elapsedTime += Time.deltaTime;
                 yield return null;
             }
+            animator.SetBool("Moving", false);
             transform.position = targetPos;
             currentGridIndex += direction * speed;
             isMoving = false;
-            animator.SetBool("Moving", false);
         }
     }
 
