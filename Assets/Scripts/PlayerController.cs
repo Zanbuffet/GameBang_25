@@ -15,6 +15,9 @@ public class PlayerController : MonoBehaviour
     public Transform cameraTransform;
     public Transform mainCamera;
     public AnimalType animalType;
+    [SerializeField] Animator animator;
+    [SerializeField] SoundManager soundManager;
+    [SerializeField] AnimatorFunction animatorFunction;
 
 
     private IEnumerator MoveCamera()
@@ -81,6 +84,7 @@ public class PlayerController : MonoBehaviour
             origPos = transform.position;
             targetPos = grid.GetTargetTransform(currentGridIndex, direction, speed).position;
             isMoving = true;
+            animator.SetBool("Moving", true);
             while (elapsedTime < timeToMove)
             {
                 transform.position = Vector3.Lerp(origPos, targetPos, (elapsedTime / timeToMove));
@@ -90,6 +94,7 @@ public class PlayerController : MonoBehaviour
             transform.position = targetPos;
             currentGridIndex += direction * speed;
             isMoving = false;
+            animator.SetBool("Moving", false);
         }
     }
 
