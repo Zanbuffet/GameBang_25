@@ -7,7 +7,11 @@ public class AnimalBlock : Block
 
     public override void TakeDamage(int damage)
     {
-        AnimalBar.Instance.AddToAnimalList(animalType);
+        if (damage == 1)
+        {
+            AnimalBar.Instance.AddToAnimalList(animalType);
+        }
+
         base.TakeDamage(damage);
     }
 }

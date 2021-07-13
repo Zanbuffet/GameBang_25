@@ -49,7 +49,7 @@ public class GameManager : MonoBehaviour
     }
     private void Update()
     {
-        //curStamina -= 1.5f * Time.deltaTime;
+        curStamina -= Time.deltaTime;
         SetStaminaBar();
     }
 }

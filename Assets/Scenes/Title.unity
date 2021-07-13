@@ -141,6 +141,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buttonController: {fileID: 2038805672}
+  soundManager: {fileID: 0}
   disableOnce: 0
 --- !u!1 &374093591
 GameObject:
@@ -153,6 +154,7 @@ GameObject:
   - component: {fileID: 374093592}
   - component: {fileID: 374093594}
   - component: {fileID: 374093593}
+  - component: {fileID: 374093595}
   m_Layer: 5
   m_Name: Background
   m_TagString: Untagged
@@ -217,6 +219,25 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 374093591}
   m_CullTransparentMesh: 1
+--- !u!95 &374093595
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 374093591}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1001 &390259359
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -629,6 +650,7 @@ GameObject:
   - component: {fileID: 1061898182}
   - component: {fileID: 1061898184}
   - component: {fileID: 1061898183}
+  - component: {fileID: 1061898185}
   m_Layer: 5
   m_Name: TitleImage
   m_TagString: Untagged
@@ -693,6 +715,25 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1061898181}
   m_CullTransparentMesh: 1
+--- !u!95 &1061898185
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1061898181}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 3777aecd1d1ba9e48a78ee0cf09478b6, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!224 &1228473639 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 4402058545693269047, guid: b59f31b46f79ff442ab7e964c6f13b6b, type: 3}
@@ -721,6 +762,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buttonController: {fileID: 2038805672}
+  soundManager: {fileID: 0}
   disableOnce: 0
 --- !u!1 &1548660566
 GameObject:
@@ -1110,7 +1152,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4402058545693269047, guid: b59f31b46f79ff442ab7e964c6f13b6b, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -465
+      value: -469
       objectReference: {fileID: 0}
     - target: {fileID: 4402058545693269047, guid: b59f31b46f79ff442ab7e964c6f13b6b, type: 3}
       propertyPath: m_AnchoredPosition.y

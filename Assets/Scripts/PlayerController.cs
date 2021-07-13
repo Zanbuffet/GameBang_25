@@ -20,6 +20,16 @@ public class PlayerController : MonoBehaviour
     [SerializeField] AnimatorFunction animatorFunction;
 
 
+private void Start() {
+    InitialzeSprite(currentGridIndex);
+}
+    public void InitialzeSprite(int point)
+    {
+        currentGridIndex = point;
+         targetPos = grid.blocks[currentGridIndex].transform.position;
+            transform.position = targetPos;
+        
+    }
     private IEnumerator MoveCamera()
     {
         float elapsedTime = 0;
