@@ -11,7 +11,8 @@ public class AnimalBar : MonoBehaviour
     public GameObject player;
     public List<GameObject> animalUI = new List<GameObject>();
     public Transform uiPanel;
-    public Image henshenUI;
+    public Image henshinImage;
+    public GameObject henshinGameObject;
     private void Awake()
     {
         if (_instance != null && _instance != this)
@@ -24,6 +25,10 @@ public class AnimalBar : MonoBehaviour
         }
     }
 
+    private void Update()
+    {
+
+    }
     public void AddToAnimalList(AnimalType animal)
     {
         if (currentList.Count == 0)
@@ -41,13 +46,18 @@ public class AnimalBar : MonoBehaviour
         AddBarUI(animal);
         if (currentList.Count == 3)
         {
-            Debug.Log("CHANGE FORM");
-            ChangeForm(animal, 0);
-            currentList.Clear();
-            ClearBarUI();
+            StartCoroutine(StartChanging(animal));
         }
     }
 
+    IEnumerator StartChanging(AnimalType animal)
+    {
+
+        ChangeForm(animal, 0);
+        currentList.Clear();
+        yield return new WaitForSeconds(0.5f);
+        ClearBarUI();
+    }
     void AddBarUI(AnimalType animalType)
     {
         //temp
@@ -62,13 +72,19 @@ public class AnimalBar : MonoBehaviour
     }
     public void UpdateUI(float amount)
     {
-        henshenUI.fillAmount = 1 - amount;
+        henshinImage.fillAmount = 1 - amount;
     }
     public void ChangeForm(AnimalType tarAnimal, AnimalType originAnimal)
     {
+        if (tarAnimal != 0)
+            henshinGameObject.SetActive(true);
+        else
+            henshinGameObject.SetActive(false);
         player.transform.GetChild((int)originAnimal).gameObject.SetActive(false);
         GameObject targetAnimal = player.transform.GetChild(((int)tarAnimal)).gameObject;
         targetAnimal.SetActive(true);
+        henshinGameObject.transform.SetParent(targetAnimal.transform);
+        henshinGameObject.transform.position = targetAnimal.transform.position + new Vector3(1.5f, 1.5f, 0);
 
         int currentPoint = player.transform.GetChild((int)originAnimal).gameObject.GetComponent<PlayerController>().currentGridIndex;
         targetAnimal.GetComponent<PlayerController>().InitialzeSprite(currentPoint);

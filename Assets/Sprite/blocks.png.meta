@@ -11,6 +11,24 @@ TextureImporter:
   - first:
       213: 5113495189850202467
     second: block_poison
+  - first:
+      213: -7109281448097604524
+    second: block_ice
+  - first:
+      213: 7451409459291756537
+    second: block_pig
+  - first:
+      213: 4256288277297392353
+    second: block_horse
+  - first:
+      213: -7855626261214365963
+    second: block_penguin
+  - first:
+      213: -2880035774045676689
+    second: block_elephant
+  - first:
+      213: 2587766382346407471
+    second: block_lion
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -103,8 +121,8 @@ TextureImporter:
       name: block_stone
       rect:
         serializedVersion: 2
-        x: 771
-        y: 377
+        x: 1177
+        y: 119
         width: 260
         height: 260
       alignment: 7
@@ -124,8 +142,8 @@ TextureImporter:
       name: block_dirt
       rect:
         serializedVersion: 2
-        x: 1037
-        y: 379
+        x: 1441
+        y: 378
         width: 260
         height: 260
       alignment: 7
@@ -145,8 +163,29 @@ TextureImporter:
       name: block_poison
       rect:
         serializedVersion: 2
-        x: 1304
-        y: 379
+        x: 1707
+        y: 373
+        width: 275
+        height: 270
+      alignment: 9
+      pivot: {x: 0.46, y: 0.030269368}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 361a0bf58c8c6f640800000000000000
+      internalID: 5113495189850202467
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: block_ice
+      rect:
+        serializedVersion: 2
+        x: 1440
+        y: 116
         width: 260
         height: 260
       alignment: 7
@@ -156,8 +195,113 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 361a0bf58c8c6f640800000000000000
-      internalID: 5113495189850202467
+      spriteID: 45c1ed58032c65d90800000000000000
+      internalID: -7109281448097604524
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: block_pig
+      rect:
+        serializedVersion: 2
+        x: 1181
+        y: 643
+        width: 260
+        height: 260
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9f712198c69b86760800000000000000
+      internalID: 7451409459291756537
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: block_horse
+      rect:
+        serializedVersion: 2
+        x: 1704
+        y: 639
+        width: 260
+        height: 260
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1ea68fd23af511b30800000000000000
+      internalID: 4256288277297392353
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: block_penguin
+      rect:
+        serializedVersion: 2
+        x: 1441
+        y: 640
+        width: 260
+        height: 260
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5f6761c49853bf290800000000000000
+      internalID: -7855626261214365963
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: block_elephant
+      rect:
+        serializedVersion: 2
+        x: 917
+        y: 640
+        width: 260
+        height: 260
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f6b179bf8be0808d0800000000000000
+      internalID: -2880035774045676689
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: block_lion
+      rect:
+        serializedVersion: 2
+        x: 1181
+        y: 380
+        width: 260
+        height: 260
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f2e847d60d799e320800000000000000
+      internalID: 2587766382346407471
       vertices: []
       indices: 
       edges: []
