@@ -13,6 +13,7 @@ public class GameManager : MonoBehaviour
     public float curStamina = 10;
     public GameObject staminaBar = null;
     public GameState gameState;
+    public GameObject failPanel;
     private void Awake()
     {
         if (_instance != null && _instance != this)
@@ -24,10 +25,11 @@ public class GameManager : MonoBehaviour
             _instance = this;
         }
     }
-
     public void GameOver()
     {
-        SceneManager.LoadScene(0);
+        failPanel.SetActive(true);
+        gameState = GameState.Dead;
+        //SceneManager.LoadScene(0);
     }
 
     public void SetStaminaBar()
@@ -46,6 +48,20 @@ public class GameManager : MonoBehaviour
         {
             GameOver();
         }
+    }
+    public void ReturnTittle()
+    {
+        SceneManager.LoadScene(0);
+    }
+    public void NewGame()
+    {
+        //temp change to scene without opening
+        SceneManager.LoadScene(2);
+    }
+
+    public void WinScene()
+    {
+        SceneManager.LoadScene(3);
     }
     private void Update()
     {

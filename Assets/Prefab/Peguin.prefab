@@ -99,4 +99,5 @@ MonoBehaviour:
   death: 0
   ice: 0
   staminaRecover: 0
+  pigEffect: {fileID: 8934719727871513239, guid: 558f65e10751302428a51bd58aae942c, type: 3}
   animalType: 3

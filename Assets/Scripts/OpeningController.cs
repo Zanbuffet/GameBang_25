@@ -4,13 +4,12 @@ using UnityEngine;
 using UnityEngine.UI;
 public class OpeningController : MonoBehaviour
 {
-    [SerializeField] GameObject comic;
     [SerializeField] Transform playerMap;
     [SerializeField] Transform playerTarget;
     [SerializeField] Vector3 targetPos, origPos;
     [SerializeField] float speed;
     [SerializeField] float timeToMove;
-
+    public float waitForCG;
     private void Start()
     {
         StartCoroutine(CameraMoving());
@@ -18,7 +17,7 @@ public class OpeningController : MonoBehaviour
 
     IEnumerator CameraMoving()
     {
-        yield return new WaitForSeconds(15f);
+        yield return new WaitForSeconds(waitForCG);
         float elapsedTime = 0;
         origPos = Camera.main.transform.position;
         targetPos = new Vector3(0, -21.09f, -10f);
